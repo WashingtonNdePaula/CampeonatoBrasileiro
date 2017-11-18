@@ -1,0 +1,90 @@
+﻿@model IEnumerable<CampeonatoBrasileiro.Models.Classificacao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TABELA</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                CLASSIFICAÇÃO
+            </th>
+            <th>
+                P
+            </th>
+            <th>
+                J
+            </th>
+            <th>
+                V
+            </th>
+            <th>
+                E
+            </th>
+            <th>
+                D
+            </th>
+            <th>
+                GP
+            </th>
+            <th>
+                GC
+            </th>
+            <th>
+                SG
+            </th>
+            <th>
+                %
+            </th>
+            <th>
+                ÚLT.JOGOS
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var time in Model)
+            {
+                <tr>
+                    <td>
+                        @time.Time
+                    </td>
+                    <td>
+                        @time.Ponto
+                    </td>
+                    <td>
+                        @time.Jogo
+                    </td>
+                    <td>
+                        @time.Vitoria
+                    </td>
+                    <td>
+                        @time.Empate
+                    </td>
+                    <td>
+                        @time.Derrota
+                    </td>
+                    <td>
+                        @time.GolPro
+                    </td>
+                    <td>
+                        @time.GolContra
+                    </td>
+                    <td>
+                        @time.SaldoGol
+                    </td>
+                    <td>
+                       @String.Format("{0:0.0}", time.Aproveitamento)
+                    </td>
+                    <td>
+                        @time.UltimosJogos.Substring(time.UltimosJogos.Length - 5)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
