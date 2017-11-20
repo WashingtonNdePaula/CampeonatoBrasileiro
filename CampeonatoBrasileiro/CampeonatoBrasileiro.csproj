@@ -163,13 +163,17 @@
     <Compile Include="Models\Membership.cs" />
     <Compile Include="Models\PenaltyShootout.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\PlayerGame.cs" />
     <Compile Include="Models\Referee.cs" />
     <Compile Include="Models\Round.cs" />
     <Compile Include="Models\Season.cs" />
     <Compile Include="Models\SeasonTeam.cs" />
     <Compile Include="Models\Standing.cs" />
+    <Compile Include="Models\PlayerSeason.cs" />
     <Compile Include="Models\Tabela.cs" />
     <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\TeamGame.cs" />
+    <Compile Include="Models\TeamSeason.cs" />
     <Compile Include="Models\Venue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Campeonato.cs" />
