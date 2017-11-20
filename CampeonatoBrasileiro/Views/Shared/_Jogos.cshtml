@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CampeonatoBrasileiro.Models.Game>
+
+<table class="table">
+    <tr>
+        <th>
+            
+        </th>
+        <th colspan="3">
+            @Model.FirstOrDefault().Week ª RODADA
+        </th>
+        <th>
+            
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td colspan="5">
+            @Html.DisplayFor(modelItem => item.DateTime)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @item.HomeTeamName
+        </td>
+        <td>
+            <strong>@item.HomeTeamScore</strong> 
+        </td>
+        <td>
+            X
+        </td>
+        <td>
+            <strong>@item.AwayTeamScore</strong>
+        </td>
+        <td>
+            @item.AwayTeamName
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            @Ajax.ActionLink("VEJA COMO FOI","",new AjaxOptions { HttpMethod="get" })
+        </td>
+    </tr>
+}
+</table>

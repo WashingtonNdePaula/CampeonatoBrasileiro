@@ -1,90 +1,100 @@
-﻿@model IEnumerable<CampeonatoBrasileiro.Models.Classificacao>
+﻿@model CampeonatoBrasileiro.Models.Tabela
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>TABELA</h2>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>
-                CLASSIFICAÇÃO
-            </th>
-            <th>
-                P
-            </th>
-            <th>
-                J
-            </th>
-            <th>
-                V
-            </th>
-            <th>
-                E
-            </th>
-            <th>
-                D
-            </th>
-            <th>
-                GP
-            </th>
-            <th>
-                GC
-            </th>
-            <th>
-                SG
-            </th>
-            <th>
-                %
-            </th>
-            <th>
-                ÚLT.JOGOS
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            foreach (var time in Model)
-            {
+<div class="row">
+    <div id="tabela" class="col-md-9 col-lg-9 col-sm-9">
+        <h2>TABELA</h2>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @time.Time
-                    </td>
-                    <td>
-                        @time.Ponto
-                    </td>
-                    <td>
-                        @time.Jogo
-                    </td>
-                    <td>
-                        @time.Vitoria
-                    </td>
-                    <td>
-                        @time.Empate
-                    </td>
-                    <td>
-                        @time.Derrota
-                    </td>
-                    <td>
-                        @time.GolPro
-                    </td>
-                    <td>
-                        @time.GolContra
-                    </td>
-                    <td>
-                        @time.SaldoGol
-                    </td>
-                    <td>
-                       @String.Format("{0:0.0}", time.Aproveitamento)
-                    </td>
-                    <td>
-                        @time.UltimosJogos.Substring(time.UltimosJogos.Length - 5)
-                    </td>
+                    <th>
+                        CLASSIFICAÇÃO
+                    </th>
+                    <th>
+                        P
+                    </th>
+                    <th>
+                        J
+                    </th>
+                    <th>
+                        V
+                    </th>
+                    <th>
+                        E
+                    </th>
+                    <th>
+                        D
+                    </th>
+                    <th>
+                        GP
+                    </th>
+                    <th>
+                        GC
+                    </th>
+                    <th>
+                        SG
+                    </th>
+                    <th>
+                        %
+                    </th>
+                    <th>
+                        ÚLT.JOGOS
+                    </th>
                 </tr>
-            }
-        }
-    </tbody>
-</table>
-
+            </thead>
+            <tbody>
+                @{
+                    int posicao = 0;
+                    foreach (var time in Model.Classificacao)
+                    {
+                        posicao += 1;
+                        <tr>
+                            <td>
+                                @posicao &nbsp; &nbsp;@time.Time
+                            </td>
+                            <td>
+                                @time.Ponto
+                            </td>
+                            <td>
+                                @time.Jogo
+                            </td>
+                            <td>
+                                @time.Vitoria
+                            </td>
+                            <td>
+                                @time.Empate
+                            </td>
+                            <td>
+                                @time.Derrota
+                            </td>
+                            <td>
+                                @time.GolPro
+                            </td>
+                            <td>
+                                @time.GolContra
+                            </td>
+                            <td>
+                                @time.SaldoGol
+                            </td>
+                            <td>
+                                @String.Format("{0:0.0}", time.Aproveitamento)
+                            </td>
+                            <td>
+                                @time.UltimosJogos.Substring(time.UltimosJogos.Length - 5)
+                                <span class="glyphicon glyphicon-certificate"></span>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="jogos" class="col-md-3 col-lg-3 col-sm-3">
+        <h2>JOGOS</h2>
+        @Html.Partial("_Jogos",Model.Jogos)
+    </div>
+</div>

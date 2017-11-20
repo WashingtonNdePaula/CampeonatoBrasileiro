@@ -33,7 +33,7 @@ namespace CampeonatoBrasileiro.Models
         public string Nickname2 { get; set; }
         public string Nickname3 { get; set; }
         public string WikipediaLogoUrl { get; set; }
-        public bool? WikipediaWordMarkUrl { get; set; }
+        public string WikipediaWordMarkUrl { get; set; }
         public int GlobalTeamId { get; set; }
         public IList<Player> Players { get; set; }
     }

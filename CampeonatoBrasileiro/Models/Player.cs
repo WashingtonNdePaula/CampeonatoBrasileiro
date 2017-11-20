@@ -29,6 +29,6 @@ namespace CampeonatoBrasileiro.Models
         public string InjuryStartDate { get; set; }
         public string Updated { get; set; }
         public string PhotoUrl { get; set; }
-        public string RotoWirePlayer { get; set; }
+        public int? RotoWirePlayerID { get; set; }
     }
 }

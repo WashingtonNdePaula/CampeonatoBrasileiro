@@ -17,5 +17,11 @@ namespace CampeonatoBrasileiro.Models
         public SeasonClass CurrentSeason { get; set; }
         public IList<Team> Teams { get; set; }
         public IList<Game> Games { get; set; }
+        public Competition()
+        {
+            CurrentSeason = new SeasonClass();
+            Teams = new List<Team>();
+            Games = new List<Game>();
+        }
     }
 }

@@ -16,6 +16,9 @@ namespace CampeonatoBrasileiro.Models
         public string EndDate { get; set; }
         public bool CurrentSeason { get; set; }
         public IList<Round> Rounds { get; set; }
-
+        public SeasonClass()
+        {
+            Rounds = new List<Round>();
+        }
     }
 }
