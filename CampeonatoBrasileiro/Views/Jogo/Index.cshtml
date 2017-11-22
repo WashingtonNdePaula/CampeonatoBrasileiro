@@ -1,0 +1,110 @@
+﻿@model CampeonatoBrasileiro.Models.BoxScore
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Detalhes do Jogo</h4>
+    <hr />
+    <h1>@Model.Game.HomeTeamName  <strong>@Model.Game.HomeTeamScore X @Model.Game.AwayTeamScore</strong>  @Model.Game.AwayTeamName</h1>
+    <hr />
+    <table>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>@Model.TeamGames[1].Name</th>
+                <th>@Model.TeamGames[0].Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Impedimentos:
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[1].Offsides.Value)
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[0].Offsides.Value)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Finalizações:
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[1].ShotsOnGoal.Value)
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[0].ShotsOnGoal.Value)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Passes Errados:
+                </td>
+                <td>
+                    @{ 
+                        var n = Math.Truncate(Model.TeamGames[1].Passes.Value) - Math.Truncate(Model.TeamGames[1].PassesCompleted.Value);
+                    }
+                    @n
+                </td>
+                <td>
+                    @{
+                        var y = Math.Truncate(Model.TeamGames[0].Passes.Value) - Math.Truncate(Model.TeamGames[0].PassesCompleted.Value);
+                    }
+                    @y
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Escanteios:
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[1].CornersWon.Value)
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[0].CornersWon.Value)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Cruzamentos:
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[1].Crosses.Value)
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[0].Crosses.Value)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Roubadas de Bola:
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[1].Interceptions.Value)
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[0].Interceptions.Value)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gols:
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[1].Score.Value)
+                </td>
+                <td>
+                    @Math.Truncate(Model.TeamGames[0].Score.Value)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Voltar para a Classificação", "Index","Classificacao")
+</p>

@@ -45,5 +45,12 @@ namespace CampeonatoBrasileiro.Models
         public int GlobalGameId { get; set; }
         public int GlobalAwayTeamId { get; set; }
         public int GlobalHomeTeamId { get; set; }
+        public Team HomeTeam { get; set; }
+        public Team AwayTeam { get; set; }
+        public Game()
+        {
+            HomeTeam = new Team();
+            AwayTeam = new Team();
+        }
     }
 }

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<CampeonatoBrasileiro.Models.PlayerSeason>
+
+<table class="table">
+    <tr>
+        <th colspan="3">RANKING</th>
+        <th>GOLS</th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+        </td>
+        <td>
+            <h1>@(Math.Truncate(item.Goals.Value)</h1>
+        </td>
+    </tr>
+}
+
+</table>

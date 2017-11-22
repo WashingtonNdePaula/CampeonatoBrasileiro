@@ -17,12 +17,12 @@
 {
     <tr>
         <td colspan="5">
-            @Html.DisplayFor(modelItem => item.DateTime)
+            <small>@Html.DisplayFor(modelItem => item.DateTime)</small>  
         </td>
     </tr>
     <tr>
         <td>
-            @item.HomeTeamName
+            <img src="@item.HomeTeam.WikipediaLogoUrl" height="30" width="30" alt="@item.HomeTeamName"/>
         </td>
         <td>
             <strong>@item.HomeTeamScore</strong> 
@@ -34,12 +34,12 @@
             <strong>@item.AwayTeamScore</strong>
         </td>
         <td>
-            @item.AwayTeamName
+            <img src="@item.AwayTeam.WikipediaLogoUrl" height="30" width="30" alt="@item.AwayTeamName"/>
         </td>
     </tr>
     <tr>
         <td colspan="5">
-            @Ajax.ActionLink("VEJA COMO FOI","",new AjaxOptions { HttpMethod="get" })
+          <small>@Html.ActionLink("VEJA COMO FOI","Index","Jogo", new { gameid = item.GameId }, null)</small>
         </td>
     </tr>
 }

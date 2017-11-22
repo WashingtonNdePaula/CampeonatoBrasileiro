@@ -9,6 +9,7 @@ namespace CampeonatoBrasileiro.Models
     {
         public IList<Classificacao> Classificacao { get; set; }
         public IList<Game> Jogos { get; set; }
+        public IList<PlayerSeason> Artilharia { get; set; }
         public Tabela()
         {
             Classificacao = new List<Classificacao>();
